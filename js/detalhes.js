@@ -37,14 +37,24 @@ const carregarDetalhes = async () => {
 
     
     container.innerHTML = `
-        <div class="pagina">
+        <div class= "container-detalhes">
             <h1>${atleta.nome}</h1>
-            <img src="${atleta.imagem || 'assets/images/default-image.jpg'}" alt="Foto de ${atleta.nome}">
-            <p><strong>Posição:</strong> ${atleta.posicao}</p>
-            <p><strong>Número de Jogos:</strong> ${atleta.n_jogos}</p>
-            <p><strong>Altura:</strong> ${atleta.altura}</p>
-            <p><strong>Naturalidade:</strong> ${atleta.naturalidade}</p>
-            <p>${atleta.detalhes}</p>
+            <div class="pagina">
+                
+                <div class= "nome-foto">
+                    
+                    <img src="${atleta.imagem || 'assets/images/default-image.jpg'}" alt="Foto de ${atleta.nome}">
+                </div>
+                <div class= "detalhes">
+                    <p><strong>Posição:</strong> ${atleta.posicao}</p>
+                    <p><strong>Número de Jogos:</strong> ${atleta.n_jogos}</p>
+                    <p><strong>Altura:</strong> ${atleta.altura}</p>
+                    <p><strong>Naturalidade:</strong> ${atleta.naturalidade}</p>
+                    <p>${atleta.detalhes}</p>
+                </div>
+
+                
+            </div>
             <a href="atletas.html">Voltar</a>
         </div>
     `;

@@ -4,7 +4,8 @@ if (!sessionStorage.getItem("logado")) {
 
 
 const container = document.getElementById("container");
-
+let atletasCache = []; 
+let generoSelecionado = '';  
 
 const pega_json = async (caminho) => {
     try {
@@ -18,16 +19,19 @@ const pega_json = async (caminho) => {
     }
 };
 
-
-const filtrarAtletas = async (genero = 'todos', nome = '') => {
-    container.innerHTML = '';
+const carregarAtletas = async (genero) => {
+    
     let endpoint = "https://botafogo-atletas.mange.li/2024-1/";
     endpoint += genero === 'todos' ? "all" : genero;
 
-    const atletas = await pega_json(endpoint);
-    const atletasFiltrados = atletas.filter(atleta =>
-        atleta.nome.toLowerCase().includes(nome.toLowerCase())
-    );
+    atletasCache = await pega_json(endpoint);  // Carrega e armazena os dados no cache
+    filtrarAtletas(genero, document.getElementById("filtro-nome").value);  // Exibe a lista filtrada
+};
+
+const filtrarAtletas = (genero, nome = '') => {
+    container.innerHTML = '';
+    const atletasFiltrados = atletasCache
+        .filter(atleta => atleta.nome.toLowerCase().includes(nome.toLowerCase()));
 
     if (atletasFiltrados.length === 0) {
         container.innerHTML = "<p>Nenhum atleta encontrado.</p>";
@@ -36,7 +40,6 @@ const filtrarAtletas = async (genero = 'todos', nome = '') => {
     }
 };
 
-
 const montaCard = (atleta) => {
     const cartao = document.createElement("div");
     cartao.classList.add("cartao");
@@ -44,7 +47,6 @@ const montaCard = (atleta) => {
     cartao.innerHTML = `
         <h1>${atleta.nome}</h1>
         <img src="${atleta.imagem || 'assets/images/default-image.jpg'}" alt="Foto de ${atleta.nome}">
-        <p>${atleta.detalhes}</p>
         <button class="saiba-mais" data-id="${atleta.id}">Saiba Mais</button>
     `;
 
@@ -56,29 +58,28 @@ const montaCard = (atleta) => {
 };
 
 
-const debounce = (func, delay) => {
-    let debounceTimer;
-    return function(...args) {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => func.apply(this, args), delay);
-    };
-};
-
-
-const debounceFiltroNome = debounce((event) => {
+document.getElementById("filtro-nome").addEventListener("input", (event) => {
     const nome = event.target.value;
-    const genero = document.querySelector('#filtro-genero button.active')?.getAttribute('data-genero') || 'todos';
-    filtrarAtletas(genero, nome);
-}, 300);
-
-document.getElementById("filtro-nome").addEventListener("input", debounceFiltroNome);
+    if (generoSelecionado) {  
+        filtrarAtletas(generoSelecionado, nome); 
+    }
+});
 
 document.getElementById("filtro-genero").addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
+        
         document.querySelectorAll("#filtro-genero button").forEach(btn => btn.classList.remove("active"));
         event.target.classList.add("active");
-        filtrarAtletas(event.target.getAttribute("data-genero"), document.getElementById("filtro-nome").value);
+
+        
+        generoSelecionado = event.target.getAttribute("data-genero");
+        carregarAtletas(generoSelecionado);
     }
+});
+
+document.getElementById("filtro-genero-select").addEventListener("change", (event) => {
+    generoSelecionado = event.target.value;
+    carregarAtletas(generoSelecionado);
 });
 
 
@@ -88,7 +89,7 @@ document.getElementById("logout").onclick = () => {
 };
 
 
-filtrarAtletas();
+
 
 
 

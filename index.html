@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Atletas Botafogo</title>
+    <link rel="icon" type="image/png" href="assets/escudo.png" sizes="16x16">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 </head>
 <body>
-    <h1>Login</h1>
-    <input type="password" id="password" placeholder="Digite a senha">
-    <button id="login-button">Entrar</button>
-    <p id="mensagem-erro" style="display: none; color: red;"></p>
+   
+    <div class="login-container">
+        <div class="login-text">
+            <h1 class="login-title">Atletas do Botafogo em 2024-1</h1>
+            <p class="login-description">Criado com objetivos exclusivamente didáticos para a disciplina Desenvolvimento Web do Ibmec Rio.</p>
+        </div>
+        <div class="login-user">    
+            <input type="password" id="password" placeholder="Informe a senha." class="login-input">
+            <button id="login-button" class="login-button">Entrar</button>
+            <p class="login-hint">Efetue login com a senha: <strong>mengao</strong></p>
+            <p id="mensagem-erro" class="error-message" style="display: none;">Senha incorreta. Tente novamente.</p>
+        </div>
+        
+    </div>
+
+    
     <script src="js/auth.js"></script>
 </body>
 </html>
+
+
+

@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atletas</title>
+    <link rel="icon" type="image/png" href="assets/escudo.png" sizes="16x16">
+    <title>Atletas Botafogo</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    
     <button id="logout">Sair</button>
+    
+    
     <h1>Lista de Atletas</h1>
     <input type="text" id="filtro-nome" placeholder="Filtrar por nome">
     <div id="filtro-genero">
+        <select id="filtro-genero-select">
+            <option selected disabled>Escolha o elenco</option>
+            <option value="todos">Elenco Completo</option>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+        </select>
         <button data-genero="todos">Todos</button>
         <button data-genero="masculino">Masculino</button>
         <button data-genero="feminino">Feminino</button>
     </div>
+    
+    
     <div id="container"></div>
+
+    
     <script src="js/main.js"></script>
 </body>
 </html>
-
 
