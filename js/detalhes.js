@@ -38,7 +38,9 @@ const carregarDetalhes = async () => {
     
     container.innerHTML = `
         <div class= "container-detalhes">
+            <div class= "titulo-jogador-detalhes">
             <h1>${atleta.nome}</h1>
+            </div>
             <div class="pagina">
                 
                 <div class= "nome-foto">

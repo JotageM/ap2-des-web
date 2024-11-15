@@ -80,6 +80,10 @@ h1 {
     gap: 4em;
     
 }
+.login-title {
+
+    font-family: "Henny Penny", system-ui;
+}
 
 
 #container {
@@ -167,6 +171,16 @@ h1 {
     text-decoration: none;
     margin-top: 20px;
     transition: color 0.3s;
+}
+
+.titulo-jogador-detalhes {
+
+    font-family: "Amarante", serif;
+}
+
+.detalhes {
+
+    font-family:"Gabriela", serif;
 }
 
 .pagina a:hover {
