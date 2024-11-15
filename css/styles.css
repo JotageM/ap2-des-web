@@ -1,0 +1,191 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+
+
+#logout {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#logout:hover {
+    background-color: #c9302c;
+}
+
+
+#filtro-nome {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#filtro-genero button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1em;
+    color: #007bff;
+    border: 1px solid #007bff;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#filtro-genero button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#filtro-genero button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+.cartao {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px auto;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.cartao img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.cartao h1 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.cartao p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+.saiba-mais {
+    padding: 10px 15px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.saiba-mais:hover {
+    background-color: #0056b3;
+}
+
+
+.pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.pagina h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pagina img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.pagina p {
+    font-size: 1.2em;
+    color: #666;
+    margin: 5px 0;
+}
+
+.pagina a {
+    font-size: 1.2em;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.pagina a:hover {
+    color: #0056b3;
+}
+
+    
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+    }
+
+    .cartao {
+        width: 100%;
+    }
+
+    .pagina {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1300px) {
+    #container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1301px) {
+    #container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+
